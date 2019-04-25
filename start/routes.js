@@ -24,4 +24,6 @@ Route.group(() => {
   Route.post('register', 'AuthController.register')
   Route.post('login', 'AuthController.login')
   Route.get('user/:id', 'AuthController.show').middleware(['auth'])
+
+  Route.resource('places', 'PlaceController')
 }).prefix('api/v1')
