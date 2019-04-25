@@ -31,6 +31,17 @@ class AuthController {
             return response.status(400).send({ 'message': 'Something went wrong!' })
         }
     }
+
+    async show({ params, response }) {
+        try {
+            const { id } = params
+            const user = await User.find(id)
+            return response.json({ 'user': user })
+        } catch (e) {
+            console.log(e);
+            return response.status(400).send({ 'message': 'Something went wrong!' })
+        }
+    }
 }
 
 module.exports = AuthController
