@@ -28,7 +28,8 @@ class PlaceController {
         try {
             const { id } = params
             const place = await Place.find(id)
-            return response.status(200).json({ 'place': place })
+            return response.status(200).json(place)
+            // return response.status(200).json({ 'place': place })
         } catch (e) {
             console.log(e);
             return response.status(400).send({ 'message': 'Something went wrong!' })
